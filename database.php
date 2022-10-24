@@ -44,7 +44,6 @@ class MySQLDatabse{
         mysqli_real_escape_string($this->connection,$string);
         return $escaped_string;
     }
-//database neutral functions
     public function fetch_array($result_set){
         return mysqli_fetch_object($result_set);
     }
@@ -54,7 +53,6 @@ class MySQLDatabse{
     }
 
     public function insert_id(){
-        //get the last id inserted over the current db connection
         return mysqli_insert_id($this->connection);
     }
 

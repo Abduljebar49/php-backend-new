@@ -25,13 +25,10 @@ class Furniture extends ProductBase
         $this->setLength($data['length']);
         $this->setWidth($data['width']);
         $this->setHeight($data['height']);
-        // print_r($this);
         $this->saveToDb();
-
 	}
-    public function delete(){
-        return 'delete';
-    }
+
+    
     public function getWidth()
     {
         return $this->width;
@@ -86,6 +83,16 @@ class Furniture extends ProductBase
     {
         $this->id = $database->insert_id();
         return true;
+    }
+
+    public function delete()
+    {
+        global $database;
+        $sql = "DELETE FROM " . self::$table_name . " ";
+        $sql .= " WHERE ID = " . $database->escape_value($this->id);
+        $sql .= " LIMIT 1";
+        $database->query($sql);
+        return ($database->affected_rows() == 1) ? 'true' : 'false';
     }
 
 }

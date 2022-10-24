@@ -12,20 +12,15 @@ class Dvd extends ProductBase
     }
 
     public function create($data){
-        // $product = new Book();
+        
         $this->setName($data['name']);
         $this->setSku($data['sku']);
         $this->setPrice($data['price']);
         $this->setType($data['type']);
         $this->setSize($data['size']);
-        // $this->setName();
         $this->saveToDb();
-        // $product-
-        // print_r($product);
 	}
-    public function delete(){
-        return 'delete';
-    }
+
     
     public function getSize()
     {
@@ -61,5 +56,14 @@ class Dvd extends ProductBase
         return true;
     }
 
+    public function delete()
+    {
+        global $database;
+        $sql = "DELETE FROM " . self::$table_name . " ";
+        $sql .= " WHERE ID = " . $database->escape_value($this->id);
+        $sql .= " LIMIT 1";
+        $database->query($sql);
+        return ($database->affected_rows() == 1) ? 'true' : 'false';
+    }
 }
 ?>

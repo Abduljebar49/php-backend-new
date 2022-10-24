@@ -40,7 +40,6 @@ class DatabaseObject
     }
     private static function instantiate($record)
     {
-        // $object = new ProductModel();
         return $record;
     }
 

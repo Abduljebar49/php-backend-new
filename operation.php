@@ -29,13 +29,13 @@ class Operation
 
 
 
-    // function delete($data)
-    // {
-    //     $product = new Product();
-    //     $product->id = $data['id'];
-    //     $product->delete();
-    //     echo json_encode(['message'=>'data successfully deleted']);
-    // }
+    function delete($data)
+    {
+        $product = new Book();
+        $product->id = $data['id'];
+        $product->delete();
+        echo json_encode(['message'=>'data successfully deleted']);
+    }
 
     function send_data($res)
     {
@@ -51,32 +51,4 @@ class Operation
     {
         return "There was an error";
     }
-
-    // function createFurniture($product,$data)
-    // {
-    //     $product->setHeight($_POST['height']);
-    //     $product->setWidth($_POST['width']);
-    //     $product->setLength($_POST['length']);
-    //     $product->create();
-    //     echo json_encode(['message'=>'data successfully inserted']);
-    // }
-
-    // function createDvd($product,$data)
-    // {
-    //     $product->setSize($_POST['size']);
-    //     $product->create();
-    //     echo json_encode(['message'=>'data successfully inserted']);
-    // }
-
-    // function createBook($product,$data)
-    // {
-    //     $product->setWeight($_POST['weight']);
-    //     $product->create();
-    //     echo json_encode(['message'=>'data successfully inserted']);
-    // }
-
-    // function invalidType()
-    // {
-    //     echo json_encode(['message' => 'type not found!']);
-    // }
 }
